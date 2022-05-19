@@ -1,0 +1,15 @@
+.options-container{
+    height: 40vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.option-title{
+    display: block;
+    font-size: 3vh;
+}

@@ -1,0 +1,43 @@
+.dice-container{
+    width: 240px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 16px;
+    transition: 0.5s border;
+}
+
+.dice-container:hover{
+    cursor: pointer;
+    /* opacity: 0.5; */
+    border-color: yellowgreen;
+}
+
+.dice{
+    width: 100px;
+    height: 100px;
+    background-image: url(../../assets/dice-sprite.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.num-of-dice-1{
+    background-position-x: 0%;
+}
+.num-of-dice-2{
+    background-position-x: 20%;
+}
+.num-of-dice-3{
+    background-position-x: 40%;
+}
+.num-of-dice-4{
+    background-position-x: 60%;
+}
+.num-of-dice-5{
+    background-position-x: 80%;
+}
+.num-of-dice-6{
+    background-position-x: 100%;
+}
