@@ -11,8 +11,11 @@
 
 .dice-container:hover{
     cursor: pointer;
-    /* opacity: 0.5; */
     border-color: yellowgreen;
+}
+
+.dice-container:active{
+    background-color: yellowgreen;
 }
 
 .dice{

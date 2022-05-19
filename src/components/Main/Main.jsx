@@ -3,7 +3,7 @@ import Game from '../Game/Game'
 import Options from '../Options/Options';
 
 class Main extends React.Component {
-    state = {numOfPlayers: "1", numOfScore: "100", gameDisplay: true} // !{numOfPlayers: null, numOfScore: null, gameDisplay: false}
+    state = {numOfPlayers: null, numOfScore: null, gameDisplay: false};
 
     onOptionsSubmit = (__numOfPlayers, __numOfScore) => {
         this.setState(pre => ({
@@ -13,10 +13,15 @@ class Main extends React.Component {
         }));
     }
 
+    onNewGameClick = () => {
+        this.setState(prev => ({gameDisplay: !prev.gameDisplay}));
+    }
+
     render() {
+        // console.log(this.state);
         return (
             <div className='main-container'>
-                {this.state.gameDisplay && <Game numOfPlayers={this.state.numOfPlayers} numOfScore={this.state.numOfScore}/>}
+                {this.state.gameDisplay && <Game numOfPlayers={this.state.numOfPlayers} numOfScore={this.state.numOfScore} onNewGameClick={this.onNewGameClick}/>}
                 {!this.state.gameDisplay && <Options callBackFunction={this.onOptionsSubmit}/>}
             </div>
         );

@@ -8,7 +8,7 @@ class Dice extends React.Component {
         const getRandomNum = () => (Math.floor(Math.random()*6) + 1);
         const newNum1 = getRandomNum();
         const newNum2 = getRandomNum();
-        this.setState({dice1: newNum1, dice2: newNum2}, this.props.callBackFunction(newNum1 + newNum2));
+        this.setState({dice1: newNum1, dice2: newNum2}, this.props.getDiceResult(newNum1 + newNum2));
     }
 
   render(){
