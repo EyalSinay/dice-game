@@ -1,3 +1,4 @@
+import './GameTools.style.css';
 import React from 'react';
 import GameOptions from './GameOptions';
 import Dice from './Dice';

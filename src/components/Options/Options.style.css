@@ -1,4 +1,11 @@
-.options-container{
+.options-main-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options-container {
     height: 40vh;
     width: 30vw;
     display: flex;
@@ -8,7 +15,7 @@
     text-align: center;
 }
 
-.option-title{
+.option-title {
     display: block;
     font-size: 3vh;
 }
@@ -17,7 +24,7 @@
 
 
 /* num-of-layers-container: */
-.num-of-layers-container{
+.num-of-layers-container {
     display: flex;
     flex-direction: column;
 }
@@ -59,21 +66,21 @@
 
 
 /* num-of-score-container: */
-.num-of-score-container .option-title{
+.num-of-score-container .option-title {
     margin-top: 2vh;
 }
 
-#num-of-score{
+#num-of-score {
     text-align: center;
     margin: 1vh;
-    border-radius: 4px;
+    border-radius: 50%;
     width: 80px;
     height: 40px;
     font-size: 3vh;
 }
 
-#start-game-btn{
-    width: 15vw;
+#start-game-btn {
+    width: 180px;
     font-size: 3vh;
 
     cursor: pointer;
@@ -88,7 +95,7 @@
     transition: 0.5s;
 }
 
-#start-game-btn:hover{
+#start-game-btn:hover {
     background-color: greenyellow;
     color: black;
 }

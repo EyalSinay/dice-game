@@ -1,26 +1,28 @@
 .dice-container{
-    width: 240px;
-    height: 140px;
+    width: 13vw;
+    height: 7vw;
+    margin: 1vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     border: 3px solid black;
     border-radius: 16px;
     transition: 0.5s border;
+    background-color: antiquewhite;
 }
 
 .dice-container:hover{
     cursor: pointer;
-    border-color: yellowgreen;
+    border-color: gold;
 }
 
 .dice-container:active{
-    background-color: yellowgreen;
+    background-color: gold;
 }
 
 .dice{
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 5vw;
     background-image: url(../../assets/dice-sprite.png);
     background-repeat: no-repeat;
     background-size: cover;

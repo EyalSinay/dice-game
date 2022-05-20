@@ -1,0 +1,25 @@
+.game-options-container{
+    display: flex;
+}
+
+.game-options-btn,
+.hold-btn {
+    margin: 1vh;
+    background-color: gray;
+    color: antiquewhite;
+    border-radius: 8px;
+    transition-property: background-color;
+    transition: 0.5s;
+}
+
+.game-options-btn:hover,
+.hold-btn:hover {
+    cursor: pointer;
+    background-color: greenyellow;
+    color: black;
+}
+
+
+.hold-btn{
+    border-radius: 50%;
+}

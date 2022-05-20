@@ -1,0 +1,24 @@
+.player-container{
+    width: 140px;
+    padding: 8px 16px;
+    margin: 8px;
+    text-align: center;
+    border: 3px solid gray;
+    border-radius: 8px;
+    box-shadow: rgba(240, 255, 255, 0.2) 0px 7px 29px 0px;
+}
+
+.player-title{
+    background-color: gray;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* current turn: */
+[data-turn="current-turn"]{
+    border: 3px solid gold;
+}
+[data-turn="current-turn"] .player-title{
+    background-color: gold;
+    color: gray;
+}

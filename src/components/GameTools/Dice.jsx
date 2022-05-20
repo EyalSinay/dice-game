@@ -1,5 +1,5 @@
 import React from 'react';
-import './Dice.css'
+import './Dice.style.css'
 
 class Dice extends React.Component {
     state = {dice1: null, dice2: null};

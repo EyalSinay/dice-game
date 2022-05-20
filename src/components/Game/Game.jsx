@@ -1,4 +1,4 @@
-import './Game-style.css';
+import './Game.style.css';
 import React from 'react';
 import Player from '../Player/Player';
 import GameTools from '../GameTools/GameTools';
@@ -139,19 +139,31 @@ class Game extends React.Component {
         return arrayOfLurers;
     }
 
+    geNumberOfPlayerNow = () => {
+        let num = 0;
+        this.state.playersObjArr.forEach(player => {
+            if (!player.loser) num++;
+        });
+        return num;
+    }
+
     onHoldClick = () => {
         const currentPlayerIndex = this.state.playersObjArr.findIndex(player => player.currenTurn);
-        this.setState(prev => {
-            const newArr = Object.values(this.state.playersObjArr);
-            newArr.forEach((element, index) => {
-                if (index === currentPlayerIndex) {
-                    element.totalScore = prev.playersObjArr[currentPlayerIndex].totalScore + prev.playersObjArr[currentPlayerIndex].currentScore;
-                    element.currentScore = 0;
-                };
+        if (this.state.playersObjArr[currentPlayerIndex].currentScore > 0) {
+            this.setState(prev => {
+                const newArr = Object.values(this.state.playersObjArr);
+                newArr.forEach((element, index) => {
+                    if (index === currentPlayerIndex) {
+                        element.totalScore = prev.playersObjArr[currentPlayerIndex].totalScore + prev.playersObjArr[currentPlayerIndex].currentScore;
+                        element.currentScore = 0;
+                    };
+                });
+                return { playersObjArr: newArr };
             });
-            return { playersObjArr: newArr };
-        });
-        this.passTurn();
+            this.passTurn();
+        } else {
+
+        }
     }
 
     turnOffLoserMessage = () => {
@@ -165,18 +177,21 @@ class Game extends React.Component {
         // console.log(this.state.playersObjArr);
         return (
             <>
-                <div className={`game-container num-of-players-${this.props.numOfPlayers}`} >
-                    {
-                        this.state.playersObjArr.filter(player => !player.loser).map((player, index) => {
-                            return (<Player
-                                key={player.playerName}
-                                currentScore={player.currentScore}
-                                totalScore={player.totalScore}
-                                playerName={player.playerName}
-                            />)
-                        })
-                    }
+                <div className="game-container" >
                     < GameTools getDiceResult={this.getDiceResult} onHoldClick={this.onHoldClick} onResetGameClick={this.resetGame} onNewGameClick={this.props.onNewGameClick} />
+                    <div className={`players-container-${this.geNumberOfPlayerNow()} players-container`}>
+                        {
+                            this.state.playersObjArr.filter(player => !player.loser).map((player, index) => {
+                                return (<Player
+                                    key={player.playerName}
+                                    currentScore={player.currentScore}
+                                    totalScore={player.totalScore}
+                                    playerName={player.playerName}
+                                    currenTurn={player.currenTurn ? "current-turn" : ""}
+                                />)
+                            })
+                        }
+                    </div>
                 </div >
                 {this.state.loserMessage && <div onClick={this.turnOffLoserMessage} className='lose-message message'>
                     <h3 className='title-message'>{this.getLosers().length > 1 ? "This players are a losers and them out of the game:" : "This player is a loser and him out of the game:"}</h3>
