@@ -5,11 +5,90 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid black;
     text-align: center;
 }
 
 .option-title{
     display: block;
     font-size: 3vh;
+}
+
+
+
+
+/* num-of-layers-container: */
+.num-of-layers-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.num-of-layers-container input[type="radio"] {
+    visibility: hidden;
+    height: 0;
+}
+
+.num-of-layers-container input[type="radio"]+label {
+    cursor: pointer;
+    padding: 1vh;
+    margin: 0.5vh;
+    border-radius: 2vh;
+    box-shadow: rgba(240, 255, 255, 0.2) 0px 7px 29px 0px;
+}
+
+.num-of-layers-container input[type="radio"]:checked+label {
+    color: black;
+    background-color: yellow;
+    transition-property: background-color;
+    transition: 0.5s;
+}
+
+.num-of-layers-container input[type="radio"]:checked+label:hover {
+    opacity: 0.5;
+}
+
+.num-of-layers-container input[type="radio"]:not(:checked)+label {
+    background-color: gray;
+    transition-property: background-color;
+    transition: 0.5s;
+}
+
+.num-of-layers-container input[type="radio"]:not(:checked)+label:hover {
+    background-color: greenyellow;
+    color: black;
+}
+
+
+/* num-of-score-container: */
+.num-of-score-container .option-title{
+    margin-top: 2vh;
+}
+
+#num-of-score{
+    text-align: center;
+    margin: 1vh;
+    border-radius: 4px;
+    width: 80px;
+    height: 40px;
+    font-size: 3vh;
+}
+
+#start-game-btn{
+    width: 15vw;
+    font-size: 3vh;
+
+    cursor: pointer;
+    padding: 1vh;
+    margin: 1.5vh;
+    border-radius: 2vh;
+    box-shadow: rgba(240, 255, 255, 0.2) 0px 7px 29px 0px;
+
+    color: black;
+    background-color: green;
+    transition-property: background-color;
+    transition: 0.5s;
+}
+
+#start-game-btn:hover{
+    background-color: greenyellow;
+    color: black;
 }

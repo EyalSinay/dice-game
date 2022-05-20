@@ -35,7 +35,7 @@ class Options extends React.Component {
                     <label className='option-title' htmlFor="num-of-score">Number of Score To Get:</label>
                     <input type="number" name="num-of-score" id="num-of-score" placeholder="100" onInput={this.onTextInput} value={this.state.numOfScore} />
                 </div>
-                <button type='submit'>Start Game</button>
+                <button id="start-game-btn" type='submit'>Start Game</button>
             </form>
         );
     }

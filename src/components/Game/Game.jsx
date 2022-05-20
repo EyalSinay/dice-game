@@ -1,3 +1,4 @@
+import './Game-style.css';
 import React from 'react';
 import Player from '../Player/Player';
 import GameTools from '../GameTools/GameTools';
@@ -51,9 +52,17 @@ class Game extends React.Component {
     // }
 
     passTurn = () => {
+        const maxPlayersIndex = this.state.playersObjArr.length - 1;
         const currentPlayerIndex = this.state.playersObjArr.findIndex(player => player.currenTurn);
-        const nextPlayerIndex = currentPlayerIndex + 1 !== this.state.playersObjArr.length ? currentPlayerIndex + 1 : 0;
-        this.setState(prev => {
+        let nextPlayerIndex = currentPlayerIndex + 1 <= maxPlayersIndex ? currentPlayerIndex + 1 : 0;
+        while (this.state.playersObjArr[nextPlayerIndex].loser) {
+            if (nextPlayerIndex + 1 <= maxPlayersIndex) {
+                nextPlayerIndex++;
+            } else {
+                nextPlayerIndex = 0;
+            }
+        }
+        this.setState(() => {
             const newArr = Object.values(this.state.playersObjArr);
             newArr.forEach((player, index) => {
                 if (currentPlayerIndex === index) player.currenTurn = false;
@@ -145,8 +154,11 @@ class Game extends React.Component {
         this.passTurn();
     }
 
-    turnOffMessages = () => {
-        this.setState({ loserMessage: false, winnerMessage: false });
+    turnOffLoserMessage = () => {
+        this.setState({ loserMessage: false });
+    }
+    turnOffWinnerMessage = () => {
+        this.resetGame();
     }
 
     render() {
@@ -166,12 +178,12 @@ class Game extends React.Component {
                     }
                     < GameTools getDiceResult={this.getDiceResult} onHoldClick={this.onHoldClick} onResetGameClick={this.resetGame} onNewGameClick={this.props.onNewGameClick} />
                 </div >
-                {this.state.loserMessage && <div onClick={this.turnOffMessages} className='lose-message message'>
-                    <h3>{this.getLosers().length > 1 ? "This players are a losers and them out of the game:" : "This player is a loser and him out of the game:"}</h3>
+                {this.state.loserMessage && <div onClick={this.turnOffLoserMessage} className='lose-message message'>
+                    <h3 className='title-message'>{this.getLosers().length > 1 ? "This players are a losers and them out of the game:" : "This player is a loser and him out of the game:"}</h3>
                     <p>{this.getLosers()}</p>
                 </div>}
-                {this.state.winnerMessage && <div onClick={this.turnOffMessages} className='winner-message message'>
-                    <h3>And the winner is:</h3>
+                {this.state.winnerMessage && <div onClick={this.turnOffWinnerMessage} className='winner-message message'>
+                    <h3 className='title-message'>And the winner is:</h3>
                     <p>{this.state.playersObjArr.find(player => player.winner).playerName}</p>
                 </div>}
             </>

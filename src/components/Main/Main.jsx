@@ -1,3 +1,4 @@
+import "./Main.css";
 import React from 'react';
 import Game from '../Game/Game'
 import Options from '../Options/Options';
