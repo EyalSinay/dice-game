@@ -1,10 +1,12 @@
-.game-options-container{
+.game-options-container {
     display: flex;
 }
 
 .game-options-btn,
 .hold-btn {
     margin: 1vh;
+    width: 8vw;
+    font-size: 1.5vw;
     background-color: gray;
     color: antiquewhite;
     border-radius: 8px;
@@ -20,6 +22,14 @@
 }
 
 
-.hold-btn{
+.hold-btn {
     border-radius: 50%;
+}
+
+@media (max-width: 420px) {
+    .game-options-btn,
+    .hold-btn {
+        width: 16vw;
+        font-size: 2vw;
+    }
 }
