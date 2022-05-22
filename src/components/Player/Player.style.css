@@ -1,4 +1,8 @@
 .player-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 140px;
     padding: 8px 16px;
     margin: 8px;
@@ -21,4 +25,11 @@
 [data-turn="current-turn"] .player-title{
     background-color: gold;
     color: gray;
+}
+
+.avatar-user{
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 8px;
 }

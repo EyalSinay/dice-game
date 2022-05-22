@@ -24,6 +24,8 @@
 
 .hold-btn {
     border-radius: 50%;
+    background-color: gold;
+    color: black;
 }
 
 @media (max-width: 420px) {
