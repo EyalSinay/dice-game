@@ -34,10 +34,10 @@ class Game extends React.Component {
         const arr = [];
         let numPlayers = Number(this.props.numOfPlayers);
         for (let i = 1; i <= numPlayers; i++) {
-            arr.push({ currentScore: 0, totalScore: 0, currenTurn: (i === 1), playerName: `Player${i}`, loser: false, winner: false, imgUrl: "../../assets/user-avatar.jpg" });
+            arr.push({ currentScore: 0, totalScore: 0, currenTurn: (i === 1), playerName: `Player${i}`, loser: false, winner: false });
         }
         if (numPlayers === 1) {
-            arr.push({ currentScore: 0, totalScore: 0, currenTurn: false, playerName: "Computer", loser: false, winner: false, imgUrl: "../../assets/user-avatar.jpg" });
+            arr.push({ currentScore: 0, totalScore: 0, currenTurn: false, playerName: "Computer", loser: false, winner: false });
         }
         this.setState({ playersObjArr: [...arr] });
     }
@@ -188,7 +188,6 @@ class Game extends React.Component {
                                     totalScore={player.totalScore}
                                     playerName={player.playerName}
                                     currenTurn={player.currenTurn ? "current-turn" : ""}
-                                    imgUrl= {player.imgUrl}
                                 />)
                             })
                         }
